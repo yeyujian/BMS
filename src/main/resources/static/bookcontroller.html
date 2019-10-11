@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="/static/js/jquery.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="/static/js/bootstrap.min.js"></script>
+
+
+    <title>后台管理页面</title>
+</head>
+
+<body>
+
+    <div th:if="${error1} eq 1">
+        <script>
+            alert('添加失败')
+        </script>
+    </div>
+    <div th:if="${error2} eq 1">
+        <script>
+            alert('修改失败')
+        </script>
+    </div>
+    <div th:if="${error3} eq 1">
+        <script>
+            alert('借书失败')
+        </script>
+    </div>
+    <div th:if="${error4} eq 1">
+        <script>
+            alert('还书失败')
+        </script>
+    </div>
+    <div th:if="${error5} eq 1">
+        <script>
+            alert('删除失败')
+        </script>
+    </div>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="tabbable" id="tabs-547509">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#panel-994620" data-toggle="tab">添加图书</a>
+                        </li>
+                        <li>
+                            <a href="#panel-261954" data-toggle="tab">修改图书</a>
+                        </li>
+                        <li>
+                            <a href="#panel-261956" data-toggle="tab">借书</a>
+                        </li>
+                        <li>
+                            <a href="#panel-261957" data-toggle="tab">还书</a>
+                        </li>
+                        <li>
+                            <a href="#panel-5" data-toggle="tab">删除书本</a>
+                        </li>
+                    </ul>
+
+
+
+
+                    <div class="tab-content">
+
+                        <!-- 页面一 -->
+                        <div class="tab-pane" id="panel-994620" th:classappend="${classNum==1?'active':''}">
+                            <h3 class=" text-center ">
+                                添加图书.
+                            </h3>
+                            <form class="form-horizontal" role="form " action="/admin/bookcontroller/add " method="post">
+                                <div class="form-group ">
+                                    <label for="Book_name1" class="col-sm-2 control-label ">书名</label>
+                                    <div class="col-sm-10 ">
+                                        <input type="text" class="form-control" id="Book_name1" name="Book_name" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Book_kind1 " class="col-sm-2 control-label ">分类</label>
+                                    <div class="col-sm-10 ">
+                                        <input type="text" class="form-control" id="Book_kind1" name="Book_category" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Book_auth" class="col-sm-2 control-label ">作者</label>
+                                    <div class="col-sm-10 ">
+                                        <input type="text" class="form-control " id="Book_auth " name="Book_auth" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Book_publish " class="col-sm-2 control-label">出版社</label>
+                                    <div class="col-sm-10 ">
+                                        <input type="text" class="form-control " id="Book_publish" name="Book_publish" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Book_price " class="col-sm-2 control-label ">价格</label>
+                                    <div class="col-sm-10 ">
+                                        <input type="text" class="form-control " id="Book_price " name="Book_price" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Book_introduction " class="col-sm-2 control-label">介绍</label>
+                                    <div class="col-sm-10 ">
+                                        <input type="text " class="form-control " id="Book_introduction " name="Book_introduction" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10 ">
+                                        <button type="submit " class="btn btn-default ">添加图书</button>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="__token__ " value="{$Request.token} " />
+                            </form>
+                        </div>
+                        <!-- 页面一 -->
+
+                        <!-- 页面二 -->
+                        <div class="tab-pane" id="panel-261954" th:classappend="${classNum==2? 'active': ''}">
+                            <h3 class="text-center">
+                                修改图书.
+                            </h3>
+                            <form class="form-horizontal" role="form" action="/admin/bookcontroller/change" method="post">
+                                <div class="form-group">
+                                    <label for="Book_id2" class="col-sm-2 control-label">书本id</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="Book_id2" name="Book_id" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Book_name2" class="col-sm-2 control-label">书名</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="Book_name2" name="Book_name" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Book_kind2" class="col-sm-2 control-label">分类</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="Book_kind2" name="Book_category" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Book_auth2" class="col-sm-2 control-label">作者</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="Book_auth2" name="Book_auth" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Book_publish2" class="col-sm-2 control-label">出版社</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="Book_publish2" name="Book_publish" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Book_price2" class="col-sm-2 control-label">价格</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="Book_price2" name="Book_price" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Book_introduction2" class="col-sm-2 control-label">介绍</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="Book_introduction2" name="Book_introduction" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-default">修改图书</button>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="__token__" value="{$Request.token}" />
+                            </form>
+                        </div>
+                        <!-- 页面二 -->
+                        <!-- 页面三 -->
+
+                        <div class="tab-pane" id="panel-261956" th:classappend="${classNum==3?'active':''}">
+                            <h3 class=" text-center ">
+                                借书.
+                            </h3>
+                            <form class="form-horizontal" role="form " action="/admin/borrowingcontroller/borrow" method="post">
+                                <div class="form-group">
+                                    <label for="Book_id3" class="col-sm-2 control-label ">书本id</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="Book_id3" name="Book_id" />
+                                    </div>
+                                </div>
+                                <div class="form-group" >
+                                    <label for="User_id3" class="col-sm-2 control-label ">用户id</label>
+                                    <div class="col-sm-10 ">
+                                        <input type="text" class="form-control" id="User_id3" name="User_id" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit " class="btn btn-default ">借书</button>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="__token__ " value="{$Request.token}" />
+                            </form>
+                        </div>
+                        <!-- 页面三 -->
+
+                        <!-- 页面四 -->
+                        <div class="tab-pane" id="panel-261957" th:classappend="${classNum==4? 'active': ''}">
+                            <h3 class="text-center">
+                                还书.
+                            </h3>
+                            <form class="form-horizontal" role="form" action="/admin/borrowingcontroller/return" method="post">
+                                <div class="form-group">
+                                    <label for="Book_id4" class="col-sm-2 control-label">书本id</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="Book_id4" name="Book_id" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="User_id4" class="col-sm-2 control-label">用户名</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="User_id4" name="User_id" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-default">还书</button>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="__token__" value="{$Request.token}" />
+                            </form>
+                        </div>
+                        <!-- 页面四 -->
+                        <!-- 页面五 -->
+                        <div class="tab-pane" id="panel-5" th:classappend="${classNum==5?'active':''}">
+                            <h3 class=" text-center ">
+                                删除书本
+                            </h3>
+                            <form class="form-horizontal" role="form " action="/admin/bookcontroller/delete" method="post">
+                                <div class="form-group ">
+                                    <label for="Book_id5" class="col-sm-2 control-label ">书本id</label>
+                                    <div class="col-sm-10 ">
+                                        <input type="text " class="form-control " id="Book_id5" name="Book_id" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10 ">
+                                        <button type="submit" class="btn btn-default">删除</button>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="__token__ " value="{$Request.token} " />
+                            </form>
+                        </div>
+                        <!-- 页面五 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

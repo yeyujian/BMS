@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="/static/js/jquery.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    <title>后台管理页面</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="tabbable" id="tabs-547509">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#panel-994620" data-toggle="tab">查询用户信息</a>
+                        </li>
+                        <li>
+                            <a href="#panel-261954" data-toggle="tab">添加用户</a>
+                        </li>
+                        <li>
+                            <a href="#panel-261956" data-toggle="tab">修改用户</a>
+                        </li>
+                        <li>
+                            <a href="#panel-261957" data-toggle="tab">删除用户</a>
+                        </li>
+                    </ul>
+
+
+
+
+                    <div class="tab-content">
+
+                        <!-- 页面一 -->
+                        <div class="tab-pane actuve active" id="panel-994620">
+                            <h3 class=" text-center ">
+                                查询用户信息.
+                            </h3>
+                            <form class="form-horizontal" role="form " id="form1" action="http://127.0.0.1:8081/admin/usercontroller/getuserinfo">
+                                <div class="form-group ">
+                                    <label for="User_id1" class="col-sm-2 control-label ">用户id</label>
+                                    <div class="col-sm-10 ">
+                                        <input type="text" class="form-control" id="User_id1" name="User_id" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10 ">
+                                        <button type="submit " class="btn btn-default " id="bth1">查询用户信息</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="show" id="showData">
+                                <h3 class="text-center">
+                                    用户信息
+                                </h3>
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                用户ID
+                                            </th>
+                                            <th>
+                                                用户名
+                                            </th>
+                                            <th>
+                                                用户密码
+                                            </th>
+                                            <th>
+                                                用户邮箱
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table1">
+                                        <!-- <tr>
+                                                    <td>
+                                                        1
+                                                    </td>
+                                                    <td>
+                                                        TB - Monthly
+                                                    </td>
+                                                    <td>
+                                                        01/04/2012
+                                                    </td>
+                                                    <td>
+                                                        Default
+                                                    </td>
+                                                </tr> -->
+                                    </tbody>
+                                </table>
+                                <h3 class="text-center">
+                                    借书信息
+                                </h3>
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                书本ID
+                                            </th>
+                                            <th>
+                                                书本名字
+                                            </th>
+                                            <th>
+                                                书本作者
+                                            </th>
+                                            <th>
+                                                出版社
+                                            </th>
+                                            <th>
+                                                分类
+                                            </th>
+                                            <th>
+                                                书本价格
+                                            </th>
+                                            <th>
+                                                书本描述
+                                            </th>
+
+                                            <th>
+                                                借书时间
+                                            </th>
+                                            <th>
+                                                应还时间
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table2">
+                                        <!-- <tr>
+                                                <td>
+                                                    1
+                                                </td>
+                                                <td>
+                                                    TB - Monthly
+                                                </td>
+                                                <td>
+                                                    01/04/2012
+                                                </td>
+                                                <td>
+                                                    Default
+                                                </td>
+                                            </tr> -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                        <!-- 页面一 -->
+
+                        <!-- 页面二 -->
+                        <div class="tab-pane" id="panel-261954">
+                            <h3 class="text-center">
+                                添加用户.
+                            </h3>
+                            <form class="form-horizontal" role="form" id="form2" action="http://127.0.0.1:8081/admin/usercontroller/add">
+                                <div class="form-group">
+                                    <label for="Usr_name2" class="col-sm-2 control-label">用户名</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="Usr_name2" name="userName" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="User_passwd2" class="col-sm-2 control-label">用户密码</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="User_passwd2" name="userPwd" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="User_email2" class="col-sm-2 control-label">用户邮箱</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="User_email2" name="userEmail" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-default" id="btn2">添加用户</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- 页面二 -->
+                        <!-- 页面三 -->
+
+                        <div class="tab-pane" id="panel-261956">
+                            <h3 class=" text-center ">
+                                修改用户
+                            </h3>
+                            <form class="form-horizontal" role="form " id="form3" action="http://127.0.0.1:8081/admin/usercontroller/change">
+                                <div class="form-group">
+                                    <label for="User_id3" class="col-sm-2 control-label ">用户id</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="Book_id3" name="userId" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Usr_name3" class="col-sm-2 control-label">用户名</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="Usr_name3" name="userName" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="User_passwd3" class="col-sm-2 control-label">用户密码</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="User_passwd3" name="userPwd" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="User_email4" class="col-sm-2 control-label">用户邮箱</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="User_email4" name="userEmail" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit " class="btn btn-default ">修改用户</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- 页面三 -->
+
+                        <!-- 页面四 -->
+                        <div class="tab-pane" id="panel-261957">
+                            <h3 class="text-center">
+                                删除用户
+                            </h3>
+                            <form class="form-horizontal" role="form" id="form4" action="http://127.0.0.1:8081/admin/usercontroller/delete">
+                                <div class="form-group">
+                                    <label for="userId4" class="col-sm-2 control-label">用户id</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="userId4" name="User_id" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-default">删除用户</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        <!-- 页面四 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $("#showData").hide();
+    $("#form1").on('submit', function() {
+        // console.log(e);
+        var targetUrl = $("#form1").attr("action");
+        var data = $("#form1").serialize();
+        $.ajax({
+            type: 'post',
+            url: targetUrl,
+            cache: false,
+            data: data, //重点必须为一个变量如：data
+            dataType: 'json',
+            success: function(data) {
+                if (data["error"] == "true") {
+                    alert(data["msg"]);
+                    $("#showData").hide();
+                    return;
+                }
+                var user = data["user"];
+                var jsonData = data["data"];
+                $("#showData").show();
+                $("#showData").find("#table1").html(`
+                <tr>
+                    <td>${user["userId"]}</td>
+                    <td>${user["userName"]}</td>
+                    <td>${user["userPwd"]}</td>
+                    <td>${user["userEmail"]}</td>
+                </tr>
+                `);
+                $("#showData").find("#table2").html("");
+                for (let i = 0; i < jsonData.length; i++) {
+                    $("#showData").find("#table2").append(`
+                <tr>
+                    <td>${jsonData[i]["book"]["bookId"]}</td>
+                    <td>${jsonData[i]["book"]["bookName"]}</td>
+                    <td>${jsonData[i]["book"]["bookAuthor"]}</td>
+                    <td>${jsonData[i]["book"]["bookPublish"]}</td>
+                    <td>${jsonData[i]["book"]["bookCategory"]}</td>
+                    <td>${jsonData[i]["book"]["bookPrice"]}</td>
+                    <td>${jsonData[i]["book"]["bookIntroduction"]}</td>
+                    <td>${jsonData[i]["dateOfBorrowing"]}</td>
+                    <td>${jsonData[i]["dateOfReturn"]}</td>
+                </tr>
+                `);
+                }
+            },
+            error: function() {
+                alert("请求失败");
+            }
+        });
+        return false;
+    });
+
+    $("#form2").on('submit', function() {
+        // console.log(e);
+        var targetUrl = $("#form2").attr("action");
+        var data = $("#form2").serialize();
+        $.ajax({
+            type: 'post',
+            url: targetUrl,
+            cache: false,
+            data: data, //重点必须为一个变量如：data
+            dataType: 'json',
+            success: function(data) {
+
+                alert(data["msg"]);
+
+            },
+            error: function() {
+                alert("请求失败");
+            }
+        });
+        return false;
+    });
+
+    $("#form3").on('submit', function() {
+        // console.log(e);
+        var targetUrl = $("#form3").attr("action");
+        var data = $("#form3").serialize();
+        $.ajax({
+            type: 'post',
+            url: targetUrl,
+            cache: false,
+            data: data, //重点必须为一个变量如：data
+            dataType: 'json',
+            success: function(data) {
+                alert(data["msg"]);
+            },
+            error: function() {
+                alert("请求失败");
+            }
+        });
+        return false;
+    });
+
+    $("#form4").on('submit', function() {
+        // console.log(e);
+        var targetUrl = $("#form4").attr("action");
+        var data = $("#form4").serialize();
+        $.ajax({
+            type: 'post',
+            url: targetUrl,
+            cache: false,
+            data: data, //重点必须为一个变量如：data
+            dataType: 'json',
+            success: function(data) {
+                alert(data["msg"]);
+            },
+            error: function() {
+                alert("请求失败");
+            }
+        });
+        return false;
+    });
+</script>
+
+</html>
