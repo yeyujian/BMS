@@ -16,6 +16,17 @@ public class CheckLogin {
 
 	}
 
+	public static boolean checkCustom(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user") != null) {
+
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
 	public static boolean checkRole(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("admin").equals("系统管理员")) {

@@ -28,6 +28,11 @@ public interface BookDao {
 			"from", TABLE_NAME, "where book_category=#{category}" })
 	public List<Book> selectByCategory(String category);
 
+	@Select({ "select",
+			"book_id as BookId,book_name as bookName,book_author as bookAuthor,book_publish as bookPublish,book_category as bookCategory,book_price as bookPrice,book_introduction as bookIntroduction ",
+			"from", TABLE_NAME, "where book_name like CONCAT('%',#{name},'%') " })
+	public List<Book> selectByName(String name);
+
 	@Insert({ "insert into book(", "book_name,book_author,book_publish,book_category,book_price,book_introduction",
 			") values (#{name}, #{author},#{publish},#{category},#{price},#{introduction})" })
 	public int insertBook(@Param("name") String name, @Param("author") String autor, @Param("publish") String publish,

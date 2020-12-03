@@ -18,7 +18,7 @@ public class BookManagerApplication extends WebMvcConfigurationSupport {
 	@RequestMapping("/")
 	public ModelAndView home(HttpServletRequest request, ModelAndView mv) {
 
-		mv.setViewName("/login");
+		mv.setViewName("login");
 		return mv;
 
 	}

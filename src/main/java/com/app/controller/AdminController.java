@@ -24,36 +24,39 @@ public class AdminController {
 			HttpServletRequest request, ModelAndView mv) {
 		if (CheckLogin.check(request)) {
 			mv.setViewName("index");
+			return mv;
 		} else {
 			Admin admin = adminService.adminLogin(name, pass);
 			if (admin != null) {
-				System.out.println(admin.getSystemadmin());
+
 				if (admin.getSystemadmin() == 1) {
 					request.getSession().setAttribute("admin", "系统管理员");
 				} else {
 					request.getSession().setAttribute("admin", "图书管理员");
 				}
+				mv.setViewName("index");
+				return mv;
 			} else {
-				mv.setViewName("login");
 				mv.addObject("error", 1);
+				mv.setViewName("login");
+				return mv;
 			}
 		}
 
-		return mv;
 	}
 
 	@RequestMapping("/")
 	public ModelAndView loginPage(HttpServletRequest request, ModelAndView mv) {
-		mv.setViewName("/login");
+		mv.setViewName("login");
 		return mv;
 	}
 
 	@RequestMapping("/index")
 	public ModelAndView indexPage(HttpServletRequest request, ModelAndView mv) {
 		if (CheckLogin.check(request)) {
-			mv.setViewName("/index");
+			mv.setViewName("index");
 		} else {
-			mv.setViewName("/login");
+			mv.setViewName("login");
 		}
 		return mv;
 	}

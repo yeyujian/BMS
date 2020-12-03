@@ -24,10 +24,10 @@ public class BorrowingController {
 	public ModelAndView borrowBook(@RequestParam("Book_id") int Bookid, @RequestParam("User_id") int Userid,
 			HttpServletRequest request, ModelAndView mv) {
 		if (!CheckLogin.check(request)) {
-			mv.setViewName("/login");
+			mv.setViewName("login");
 			return mv;
 		}
-		mv.setViewName("/bookcontroller");
+		mv.setViewName("bookcontroller");
 		if (!borrowingBooksService.borrowBook(Bookid, Userid)) {
 			mv.addObject("error3", 1);
 		}
@@ -38,11 +38,11 @@ public class BorrowingController {
 	@RequestMapping("/return")
 	public ModelAndView returnBook(@RequestParam("Book_id") int Bookid, HttpServletRequest request, ModelAndView mv) {
 		if (!CheckLogin.check(request)) {
-			mv.setViewName("/login");
+			mv.setViewName("login");
 			return mv;
 		}
 		// System.out.printf("%d -------\n", Bookid);
-		mv.setViewName("/bookcontroller");
+		mv.setViewName("bookcontroller");
 		if (!borrowingBooksService.returnBook(Bookid)) {
 			mv.addObject("error4", 1);
 		}

@@ -30,9 +30,9 @@ public class UserController {
 	@RequestMapping("/")
 	public ModelAndView userControllerPage(HttpServletRequest request, ModelAndView mv) {
 		if (CheckLogin.check(request) && CheckLogin.checkRole(request)) {
-			mv.setViewName("/usercontroller");
+			mv.setViewName("usercontroller");
 		} else {
-			mv.setViewName("/login");
+			mv.setViewName("login");
 			mv.addObject("error", 2);
 		}
 		return mv;

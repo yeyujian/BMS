@@ -25,10 +25,10 @@ public class BookController {
 	@RequestMapping("/")
 	public ModelAndView bookControllerPage(HttpServletRequest request, ModelAndView mv) {
 		if (CheckLogin.check(request)) {
-			mv.setViewName("/bookcontroller");
+			mv.setViewName("bookcontroller");
 			mv.addObject("classNum", 1);
 		} else {
-			mv.setViewName("/login");
+			mv.setViewName("login");
 			mv.addObject("error", 1);
 
 		}
@@ -42,10 +42,10 @@ public class BookController {
 			HttpServletRequest request, ModelAndView mv) {
 		double price = Double.valueOf(Bprice);
 		if (!CheckLogin.check(request)) {
-			mv.setViewName("/login");
+			mv.setViewName("login");
 			return mv;
 		}
-		mv.setViewName("/bookcontroller");
+		mv.setViewName("bookcontroller");
 		Book book = new Book();
 		book.setBookAuthor(auth);
 		book.setBookCategory(category);
@@ -67,10 +67,10 @@ public class BookController {
 			@RequestParam("Book_introduction") String introduction, HttpServletRequest request, ModelAndView mv) {
 		double price = Double.valueOf(Bprice);
 		if (!CheckLogin.check(request)) {
-			mv.setViewName("/login");
+			mv.setViewName("login");
 			return mv;
 		}
-		mv.setViewName("/bookcontroller");
+		mv.setViewName("bookcontroller");
 		Book book = new Book();
 		book.setBookId(id);
 		book.setBookAuthor(auth);
@@ -89,10 +89,10 @@ public class BookController {
 	@RequestMapping("/delete")
 	public ModelAndView deleteBook(@RequestParam("Book_id") int Book_id, HttpServletRequest request, ModelAndView mv) {
 		if (!CheckLogin.check(request)) {
-			mv.setViewName("/login");
+			mv.setViewName("login");
 			return mv;
 		}
-		mv.setViewName("/bookcontroller");
+		mv.setViewName("bookcontroller");
 		if (!bookService.delectBookById(Book_id)) {
 			mv.addObject("error5", 1);
 		}
